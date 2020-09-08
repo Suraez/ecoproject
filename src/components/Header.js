@@ -35,9 +35,6 @@ export default function Header() {
             <img src={require(`../assets/images/a4.jpg`)} alt="ecoformula1" className={styles.image}/>
             </div>
           </div>
-          {/* <img src={require(`../assets/images/a2.jpg`)} alt="ecoformula1" className={styles.image}/>
-          <img src={require(`../assets/images/a3.jpg`)} alt="ecoformula1" className={styles.image}/>
-          <img src={require(`../assets/images/a4.jpg`)} alt="ecoformula1" className={styles.image}/> */}
           <p className="lead">
             <Button color="primary m-2" onClick={likeHandler} disabled={isLiked}><FontAwesomeIcon icon={faHeart} />{isLiked ? ' Liked': ' Like'}</Button><Badge color="secondary">{like}</Badge>
           </p>
