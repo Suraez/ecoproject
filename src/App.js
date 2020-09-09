@@ -6,10 +6,12 @@ import Calculator from './components/Calculator'
 
 function App() {
   return (
+    <div className="App">
       <Router>
-      <Route path="/" exact component={Layout} />
-      <Route path="/calculator" exact component={Calculator} />
-    </Router>
+        <Route path="/" exact component={Layout} />
+        <Route path="/calculator" exact component={Calculator} />
+      </Router>
+    </div>
   );
 }
 
