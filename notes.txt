@@ -1,0 +1,2 @@
+-> while deploying react app using gh-pages , it's very important to use
+'HashRouter' instead of 'BrowserRouter'
