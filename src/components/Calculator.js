@@ -108,8 +108,8 @@ export default function Calculator() {
             </Col>
           </FormGroup>
           <FormGroup check row>
-            <Col sm={{ size: 10, offset: 5 }}>
-              <Button>Submit</Button>
+            <Col>
+              <Button color="info">Calculate</Button>
             </Col>
           </FormGroup>
           <p>

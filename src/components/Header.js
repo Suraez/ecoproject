@@ -4,6 +4,7 @@ import { Jumbotron, Button, Badge } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import styles from '../assets/css/header.module.css'
+import { Link } from 'react-router-dom';
 export default function Header() {
     const [like, setLikes] = useState(5);
     const [isLiked, setLiked] = useState(false);
@@ -23,17 +24,14 @@ export default function Header() {
           <hr className="my-2" />
           <div className="row">
             <div className="col-md-3 col-12">
-            <img src={require(`../assets/images/a1.jpg`)} alt="ecoformula1" className={styles.image}/>
+             <Link to="/calculator"><img src={require(`../assets/images/a1.jpg`)} alt="ecoformula1" className={styles.image}/></Link>  
             </div>
             <div className="col-md-3 col-12">
-            <img src={require(`../assets/images/a2.jpg`)} alt="ecoformula1" className={styles.image}/>
-            </div>
+            <Link to="/calculator"><img src={require(`../assets/images/a2.jpg`)} alt="ecoformula1" className={styles.image}/></Link>            </div>
             <div className="col-md-3 col-12">
-            <img src={require(`../assets/images/a3.jpg`)} alt="ecoformula1" className={styles.image}/>
-            </div>
+            <Link to="/calculator"><img src={require(`../assets/images/a3.jpg`)} alt="ecoformula1" className={styles.image}/></Link>            </div>
             <div className="col-md-3 col-12">
-            <img src={require(`../assets/images/a4.jpg`)} alt="ecoformula1" className={styles.image}/>
-            </div>
+            <Link to="/calculator"><img src={require(`../assets/images/a4.jpg`)} alt="ecoformula1" className={styles.image}/></Link>            </div>
           </div>
           <p className="lead">
             <Button color="primary m-2" onClick={likeHandler} disabled={isLiked}><FontAwesomeIcon icon={faHeart} />{isLiked ? ' Liked': ' Like'}</Button><Badge color="secondary">{like}</Badge>
