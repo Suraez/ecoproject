@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Jumbotron, Button, Badge } from 'reactstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faSmileBeam } from '@fortawesome/free-solid-svg-icons'
 import styles from '../assets/css/header.module.css'
 import { Link } from 'react-router-dom';
 export default function Header() {
@@ -19,7 +19,7 @@ export default function Header() {
         <Jumbotron className="container">
           <h1 className="display-3">Hello, world!</h1>
           <p className="lead">
-            Just another project. Calculate following formulae of Engineering Economics real fast. Hope you like it.   
+            Just another project. Calculate following formulae of Engineering Economics real fast. Have a good day!.<FontAwesomeIcon icon={faSmileBeam} />
           </p>
           <hr className="my-2" />
           <div className="row">
