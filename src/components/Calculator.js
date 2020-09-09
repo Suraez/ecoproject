@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBackward} from '@fortawesome/free-solid-svg-icons'
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Answer from './Answer';
+
+import '../assets/css/calculator.module.css'
 
 
 export default function Calculator() {
@@ -35,7 +39,7 @@ export default function Calculator() {
       <div className="container">
         <div className="row">
           <div className="col-md-8 m-auto bg-secondary p-4">
-          <h5 style={{background: 'lightBlue', padding: '10px'}}>You don't have to fill every field.Just fill the field required in your formula.For e.g if you wanna calculate f = p*(i+1)^n just fill the pvalue, ivalue and nvalue</h5>
+          <h5 style={{background: 'lightBlue', padding: '10px', textAlign: 'center'}}>You don't have to fill every field.Just fill the field required in your formula.For e.g if you wanna calculate f = p*(i+1)^n just fill the pvalue, ivalue and nvalue</h5>
           <Form onSubmit={submitHandler}>
           <FormGroup row>
             <Label for="form1" sm={2}>
@@ -112,8 +116,8 @@ export default function Calculator() {
               <Button color="info">Calculate</Button>
             </Col>
           </FormGroup>
-          <p>
-            <Link to="/" style={{color: '#48cae4', textDecoration: 'none'}}>Go back</Link>
+          <p className="m-2">
+            <Link to="/" style={{color: '#48cae4', textDecoration: 'none'}}>Go back<FontAwesomeIcon icon={faBackward} /></Link>
           </p>
         </Form>
           </div>

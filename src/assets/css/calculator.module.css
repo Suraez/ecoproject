@@ -1,0 +1,6 @@
+@media(max-width: 500px) {
+    Label{
+        text-align: left !important;
+        /* color: blue; */
+    }
+}

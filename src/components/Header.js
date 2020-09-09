@@ -23,18 +23,18 @@ export default function Header() {
           </p>
           <hr className="my-2" />
           <div className="row">
-            <div className="col-md-3 col-12">
+            <div className="col-md-3 col-12 ">
              <Link to="/calculator"><img src={require(`../assets/images/a1.jpg`)} alt="ecoformula1" className={styles.image}/></Link>  
             </div>
-            <div className="col-md-3 col-12">
+            <div className="col-md-3 col-12 m-auto">
             <Link to="/calculator"><img src={require(`../assets/images/a2.jpg`)} alt="ecoformula1" className={styles.image}/></Link>            </div>
-            <div className="col-md-3 col-12">
+            <div className="col-md-3 col-12 m-auto">
             <Link to="/calculator"><img src={require(`../assets/images/a3.jpg`)} alt="ecoformula1" className={styles.image}/></Link>            </div>
             <div className="col-md-3 col-12">
             <Link to="/calculator"><img src={require(`../assets/images/a4.jpg`)} alt="ecoformula1" className={styles.image}/></Link>            </div>
           </div>
           <p className="lead">
-            <Button color="primary m-2" onClick={likeHandler} disabled={isLiked}><FontAwesomeIcon icon={faHeart} />{isLiked ? ' Liked': ' Like'}</Button><Badge color="secondary">{like}</Badge>
+            <Button color="info m-2" onClick={likeHandler} disabled={isLiked}><FontAwesomeIcon icon={faHeart} />{isLiked ? ' Liked': ' Like'}</Button><Badge color="secondary">{like}</Badge>
           </p>
         </Jumbotron>
       </div>
