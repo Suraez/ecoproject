@@ -1,42 +1,47 @@
-import React, {useState} from 'react'
-import { Jumbotron, Button, Badge } from 'reactstrap';
+import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faSmileBeam } from '@fortawesome/free-solid-svg-icons'
 import styles from '../assets/css/header.module.css'
-import { Link } from 'react-router-dom';
+import Calculator from './Calculator.jsx'
+import Footer from './Footer'
+import LikeComment from './LikeComment'
+
+// import { Link } from 'react-router-dom';
 export default function Header() {
-    const [like, setLikes] = useState(5);
-    const [isLiked, setLiked] = useState(false);
-
-    const likeHandler = () => {
-      setLikes(like+1);
-      setLiked(true);
-    }
-
     return (
-      <div>
-        <Jumbotron className="container">
-          <h1 className="display-3">Hello, world!</h1>
-          <p className="lead">
-            Just another project. Calculate following formulae of Engineering Economics real fast. Have a good day!.<FontAwesomeIcon icon={faSmileBeam} />
-          </p>
-          <hr className="my-2" />
-          <div className="row">
-            <div className="col-md-3 col-12 ">
-             <Link to="/calculator"><img src={require(`../assets/images/a1.jpg`)} alt="ecoformula1" className={styles.image}/></Link>  
-            </div>
-            <div className="col-md-3 col-12 m-auto">
-            <Link to="/calculator"><img src={require(`../assets/images/a2.jpg`)} alt="ecoformula1" className={styles.image}/></Link>            </div>
-            <div className="col-md-3 col-12 m-auto">
-            <Link to="/calculator"><img src={require(`../assets/images/a3.jpg`)} alt="ecoformula1" className={styles.image}/></Link>            </div>
-            <div className="col-md-3 col-12">
-            <Link to="/calculator"><img src={require(`../assets/images/a4.jpg`)} alt="ecoformula1" className={styles.image}/></Link>            </div>
+      <div className={`container shadow bg-white`}>
+
+        <div className="row">
+          <div className="col-12">
+            <nav >
+              <ul className={`d-flex justify-content-center ${styles.ListStyle} text-muted`}>
+                <li className="p-4">Home</li>
+                <li className="p-4">Calculators</li>
+                <li className="p-4">Developers</li>
+              </ul>
+            </nav>
           </div>
-          <p className="lead">
-            <Button color="info m-2" onClick={likeHandler} disabled={isLiked}><FontAwesomeIcon icon={faHeart} />{isLiked ? ' Liked': ' Like'}</Button><Badge color="secondary">{like}</Badge>
-          </p>
-        </Jumbotron>
+        </div>
+
+        <div className="row">
+          <div className="col-md-2 col-12 d-flex justify-content-center align-items-center text-muted">
+              <LikeComment />
+          </div>
+          <div className="col-md-6 col-12">
+             <img src={require('../assets/images/man.svg')} alt="illustrations"/>
+          </div>
+          <div className="col-md-4 text-muted col-12 mt-3 text-center">
+            <h4 className={styles.textStyles}>Click on any of the calculator</h4>
+              <Calculator formula="P (F/P, i%, n)" label="Future Worth"/>
+              <Calculator formula="A (P/A, i%, n)" label="Present Worth"/>
+              <Calculator formula="F (A/F, i%, n)" label="Annual Worth"/>
+              <Calculator formula="G (F/G, i%, n)" label="Future Worth"/>
+           <button className={`${styles.showMore}`}>Show More</button>
+          </div>
+        </div>
+        <hr style={{background: '#55b8cf'}}/>
+        <Footer />
       </div>
     );
 }
