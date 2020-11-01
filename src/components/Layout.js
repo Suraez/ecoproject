@@ -5,7 +5,7 @@ import Header from './Header'
 
 export default function Layout() {
     return (
-        <div  className="App">
+        <div>
            <Header />    
         </div> 
     )

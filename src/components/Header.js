@@ -1,26 +1,20 @@
 import React from 'react'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faSmileBeam } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faHeart, faSmileBeam } from '@fortawesome/free-solid-svg-icons'
 import styles from '../assets/css/header.module.css'
 import Calculator from './Calculator.jsx'
 import Footer from './Footer'
 import LikeComment from './LikeComment'
+import Navigation from './Navigation'
 
 // import { Link } from 'react-router-dom';
 export default function Header() {
     return (
-      <div className={`container shadow bg-white`}>
-
+      <div className="container shadow bg-white text-muted">
         <div className="row">
           <div className="col-12">
-            <nav >
-              <ul className={`d-flex justify-content-center ${styles.ListStyle} text-muted`}>
-                <li className="p-4">Home</li>
-                <li className="p-4">Calculators</li>
-                <li className="p-4">Developers</li>
-              </ul>
-            </nav>
+            <Navigation />
           </div>
         </div>
 
