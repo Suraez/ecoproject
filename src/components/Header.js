@@ -1,15 +1,17 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faHeart, faSmileBeam } from '@fortawesome/free-solid-svg-icons'
 import styles from '../assets/css/header.module.css'
-import Calculator from './Calculator.jsx'
+import Calculator from './Calculator.js'
 import Footer from './Footer'
 import LikeComment from './LikeComment'
 import Navigation from './Navigation'
 
 // import { Link } from 'react-router-dom';
 export default function Header() {
+    
     return (
       <div className="container shadow bg-white text-muted">
         <div className="row">
@@ -31,7 +33,7 @@ export default function Header() {
               <Calculator formula="A (P/A, i%, n)" label="Present Worth"/>
               <Calculator formula="F (A/F, i%, n)" label="Annual Worth"/>
               <Calculator formula="G (F/G, i%, n)" label="Future Worth"/>
-           <button className={`${styles.showMore}`}>Show More</button>
+            <NavLink to="/calculators"><button className={`${styles.showMore}`}>Show More</button></NavLink> 
           </div>
         </div>
         <hr style={{background: '#55b8cf'}}/>

@@ -3,6 +3,8 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import './App.css';
 import Layout from './components/Layout'
 // import Calculator from './components/Calculator'
+import Calculators from './components/Calculators';
+import Developer from './Developer';
 import Calc from './components/Calc';
 
 function App() {
@@ -10,7 +12,9 @@ function App() {
     <div className="App">
       <Router>
         <Route path="/" exact component={Layout} />
-        <Route path="/calc" component={Calc} />
+        <Route path="/calculators" exact component={Calculators} />
+        <Route path="/developer" exact component={Developer} />
+        <Route path="/calc" exact component={Calc} />
       </Router>
     </div>
   );

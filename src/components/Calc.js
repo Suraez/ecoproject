@@ -1,15 +1,19 @@
 import React from 'react'
+// import {withRouter} from "react-router-dom"
+
 import Footer from './Footer'
 import Navigation from './Navigation'
-
 import styles from "../assets/css/calc.module.css"
 import Comment from './Comment'
 import PostComment from './PostComment'
 
-export default function Calc() {
+import AnsModal from './AnsModal'
+
+function Calc(props) {
+    console.log(props);
     return (
     <>
-        <div className="container bg-white shadow text-muted">
+        <div className="container bg-white shadow text-muted p-4">
             <Navigation />
             <div className="row d-flex justify-content-center m-2">
                 <div className="col-md-8 col-12 text-justify">
@@ -21,13 +25,13 @@ export default function Calc() {
 
             <div className="row">
                 <div className="col-md-6 col-12">
-                    <img src={require('../assets/images/a1.jpg')} alt="image1" className={styles.image}/>
+                    <img src={props.location.state.imagePath} alt="image1" className={styles.image}/>
                 </div>
                 <div className="col-md-6 col-12">
-                    <h4>Fill out the values.And get answers in seconds.</h4>
+                    <h4>Fill in the values.And get answers in seconds.</h4>
                     <hr style={{background: '#55b8cf', height: '6px'}}/>
                     <div className="form-group">
-                        <label htmlFor="firstInput">P value</label>
+                        <label htmlFor="firstInput">{props.location.state.sum} value</label>
                         <input type="text" id="firstInput" className="form-control" placeholder="e.g. 10000"/>
                     </div>
                     <div className="form-group">
@@ -39,18 +43,8 @@ export default function Calc() {
                         <input type="text" id="thirdInput" className="form-control" placeholder="e.g. 5"/>
                     </div>
                     <div className="text-center">
-                        <button type="button" className="btn btn-info" data-toggle="modal" data-target="#bd-example-modal-sm">
-                            Calculate
-                        </button>
-
-                    <div className="modal fade" id="bd-example-modal-sm" tabIndex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                        <div className="modal-dialog modal-sm">
-                            <div className="modal-content">
-                            12,889.99
-                            </div>
-                        </div>
+                        <AnsModal />
                     </div>
-                </div>
                 </div>
             </div>
             <h4>Comments</h4>
@@ -75,3 +69,4 @@ export default function Calc() {
     </>
     )
 }
+export default Calc;
