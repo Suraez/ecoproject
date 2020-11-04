@@ -6,11 +6,11 @@ import Navigation from './Navigation'
 import styles from "../assets/css/calc.module.css"
 import Comment from './Comment'
 import PostComment from './PostComment'
+import assets from '../assets'
 
 import AnsModal from './AnsModal'
 
 function Calc(props) {
-    console.log(props);
     return (
     <>
         <div className="container bg-white shadow text-muted p-4">
@@ -25,7 +25,7 @@ function Calc(props) {
 
             <div className="row">
                 <div className="col-md-6 col-12">
-                    <img src={props.location.state.imagePath} alt="image1" className={styles.image}/>
+                    <img src={assets[props.location.state.imagePath]} alt="image1" className={styles.image}/>
                 </div>
                 <div className="col-md-6 col-12">
                     <h4>Fill in the values.And get answers in seconds.</h4>
