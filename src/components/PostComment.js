@@ -1,27 +1,66 @@
-import React from 'react'
+import React, { useState } from "react";
+import axios from "../axiosConfig";
 
 export default function PostComment() {
-    return (
-        <>
-        <h4>Post Comment</h4>
-        <hr style={{background: '#55b8cf', height: '6px'}}/>
-            <div className="form-group">
-                <label htmlFor="username">Full Name     :</label>
-                <input type="text" id="username" className="form-control" placeholder="John Doe" required/>
-            </div>
-            <div className="form-group">
-                <label htmlFor="useremail">Email    :</label>
-                <input type="email" id="useremail" className="form-control" placeholder="johndoe@gmail.com" required/>
-            </div>
-            <div className="form-group">
-                <label htmlFor="usercomment">comment    :</label>
-                <textarea type="text" id="usercomment" className="form-control" placeholder="Type your comment here." required/>
-            </div>
-            <div className="form-group">
-            <button type="submit" className="btn btn-info">
-                Post Comment
-            </button>
-            </div>
-        </>
-    )
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [comment, setComment] = useState("");
+
+  const postHandler = (e) => {
+      e.preventDefault();
+    axios
+      .post("/comments.json", { name, email, comment })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  };
+
+  return (
+    <>
+      <h4>Post Comment</h4>
+      <hr style={{ background: "#55b8cf", height: "6px" }} />
+      <form onSubmit={postHandler}>
+        <div className="form-group">
+          <label htmlFor="username">Full Name :</label>
+          <input
+            type="text"
+            id="username"
+            value={name}
+            className="form-control"
+            placeholder="John Doe"
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="useremail">Email :</label>
+          <input
+            type="email"
+            id="useremail"
+            value={email}
+            className="form-control"
+            placeholder="johndoe@gmail.com"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="usercomment">comment :</label>
+          <textarea
+            type="text"
+            id="usercomment"
+            value={comment}
+            className="form-control"
+            placeholder="Type your comment here."
+            onChange={(e) => setComment(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <button type="submit" className="btn btn-info">
+            Post Comment
+          </button>
+        </div>
+      </form>
+    </>
+  );
 }

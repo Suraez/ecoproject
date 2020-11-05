@@ -1,18 +1,16 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as f2} from '@fortawesome/free-solid-svg-icons'
 import { faHeart, faComment} from '@fortawesome/free-regular-svg-icons'
-export default function LikeComment() {
-    const [isLiked, setIsLiked] = useState(false);
 
-
+export default function LikeComment(props) {
     return (
         <div className="text-center">
             <div>
-                <FontAwesomeIcon icon={isLiked ? f2 : faHeart} size="2x" onClick={() => setIsLiked(true)} />
-                <p>3 Likes</p>  
+                <FontAwesomeIcon icon={props.isLiked ? f2 : faHeart} size="2x" onClick={props.likeHandler} />
+                <p>{props.totalLikes}{' '}Likes</p>  
             </div>
 
             <div>

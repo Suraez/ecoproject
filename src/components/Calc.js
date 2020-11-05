@@ -11,6 +11,7 @@ import assets from '../assets'
 import AnsModal from './AnsModal'
 
 function Calc(props) {
+    
     return (
     <>
         <div className="container bg-white shadow text-muted p-4">
@@ -32,7 +33,7 @@ function Calc(props) {
                     <hr style={{background: '#55b8cf', height: '6px'}}/>
                     <div className="form-group">
                         <label htmlFor="firstInput">{props.location.state.sum} value</label>
-                        <input type="text" id="firstInput" className="form-control" placeholder="e.g. 10000"/>
+                        <input type="text"  id="firstInput" className="form-control" placeholder="e.g. 10000"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="secondInput">i value</label>
