@@ -10,10 +10,6 @@ import axios from './axiosConfig'
 
 function App() {
   const [isLiked, setIsLiked] = useState(false);
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [comment, setComment] = useState("")
-
   const [likes, setLikes] = useState(0);
 
   useEffect(() => {
@@ -29,18 +25,10 @@ function App() {
     const likeHandler = () => {
       axios.put("/likes.json", {likes: likes+1})
        .then(res => {
-              setLikes(likes+1)
-              alert("Thanks for the like <3")
+              setLikes(prevLikes => prevLikes + 1)
               setIsLiked(true);
       })
        .catch(err => console.log(err))
-    }
-
-    const submitComment = (e) => {
-      e.preventDefault();
-      axios.post("/comments.json", {name, email, comment})
-        .then(res => console.log(res.data))
-        .catch(err => console.log(err))
     }
   return (
     <div className="App">

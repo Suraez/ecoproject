@@ -5,15 +5,15 @@ import { faUser  } from "@fortawesome/free-regular-svg-icons";
 
 import styles from "../assets/css/calc.module.css"
 
-export default function Comment() {
+export default function Comment(props) {
     return (
         <div className={`d-flex ${styles.shadowEffect} p-2 mt-4`}>
-            Hey, it looks awesome.
+            {props.comment}
             <div className={styles.comment}>
             <FontAwesomeIcon icon={faUser} />{"     "}
-                Sneha Dixit
+                {props.name}
                 <div>
-                {new Date().toJSON().slice(0,10).replace(/-/g,'/')}
+                {props.date}
                 </div>
             </div>
         </div>

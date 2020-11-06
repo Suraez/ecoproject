@@ -1,5 +1,4 @@
-import React from 'react'
-// import {withRouter} from "react-router-dom"
+import React, {useEffect, useState} from 'react'
 
 import Footer from './Footer'
 import Navigation from './Navigation'
@@ -7,11 +6,27 @@ import styles from "../assets/css/calc.module.css"
 import Comment from './Comment'
 import PostComment from './PostComment'
 import assets from '../assets'
-
+import axios from "../axiosConfig"
 import AnsModal from './AnsModal'
 
 function Calc(props) {
-    
+
+    const [commentArr, setCommentArr] = useState(null);
+
+    useEffect(() => {
+        axios.get('/comments.json')
+            .then(res => {
+                let allComments = []
+                for (let key in res.data) {
+                    allComments.push({
+                        id: key,
+                        ...res.data[key]
+                    })
+                }
+                setCommentArr(allComments)
+            })
+            .catch(err => console.log(err))
+    },[])
     return (
     <>
         <div className="container bg-white shadow text-muted p-4">
@@ -53,10 +68,7 @@ function Calc(props) {
 
             <div className="row">
                 <div className="col-md-6 col-12">
-                    <Comment />
-                    <Comment />
-                    <Comment />
-                    
+                    {commentArr && commentArr.map(comment => <Comment  key={comment.id} date={comment.date} name={comment.name} comment={comment.comment}/>)} 
                 </div>
                 <div className="col-md-6 col-12">
                     <PostComment />

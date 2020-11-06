@@ -9,8 +9,13 @@ export default function PostComment() {
   const postHandler = (e) => {
       e.preventDefault();
     axios
-      .post("/comments.json", { name, email, comment })
-      .then((res) => console.log(res.data))
+      .post("/comments.json", { name, email, comment, date: new Date().toJSON().slice(0,10).replace(/-/g,'/')})
+      .then((res) => {
+        setName("")
+        setEmail("")
+        setComment("")
+        alert("Thanks for the comment!!!")
+      })
       .catch((err) => console.log(err));
   };
 
