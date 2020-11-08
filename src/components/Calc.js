@@ -15,11 +15,14 @@ class Calc extends Component{
     state = {
         commentArr: [],
         currentPage: 1,
-        commentPerPage: 4
+        commentPerPage: 4,
+        imagePath: null,
+        firstSum: null,
+        functionRef: null
     }
 
     componentDidMount () {
-        console.log(this.props);
+        this.getStates(this.props.match.params.id)
         axios.get('/comments.json')
         .then(res => {
             let allComments = []
@@ -36,6 +39,36 @@ class Calc extends Component{
 
     paginate = (page) => {
         this.setState({currentPage: page})
+    }
+
+
+    getStates = (id) => {
+        switch (id) {
+            case '1':
+                this.setState({imagePath: 'a1', firstSum: 'P'})
+                break;
+            case '2':
+                this.setState({imagePath: 'a2', firstSum: 'A'})
+                break;
+            case '3':
+                this.setState({imagePath: 'a3', firstSum: 'A'})
+                break;
+            case '4':
+                this.setState({imagePath: 'a1', firstSum: 'P'})
+                break;
+            case '5':
+                this.setState({imagePath: 'a1', firstSum: 'P'})
+                break;
+            case '6':
+                this.setState({imagePath: 'a1', firstSum: 'P'})
+                break;
+            case '7':
+                this.setState({imagePath: 'a4', firstSum: 'G'})
+                break;
+            default:
+                this.setState({imagePath: 'a1', firstSum: 'P'})
+                break;
+        }
     }
     
     render() {
@@ -58,13 +91,13 @@ class Calc extends Component{
     
                 <div className="row">
                     <div className="col-md-6 col-12">
-                        <img src={assets[this.props.location.state.imagePath]} alt="image1" className={styles.image}/>
+                        <img src={assets[this.state.imagePath]} alt="image1" className={styles.image}/>
                     </div>
                     <div className="col-md-6 col-12">
                         <h4>Fill in the values.And get answers in seconds.</h4>
                         <hr style={{background: '#55b8cf', height: '6px'}}/>
                         <div className="form-group">
-                            <label htmlFor="firstInput">{this.props.location.state.sum} value</label>
+                            <label htmlFor="firstInput">{this.state.firstSum} value</label>
                             <input type="text"  id="firstInput" className="form-control" placeholder="e.g. 10000"/>
                         </div>
                         <div className="form-group">
@@ -91,7 +124,7 @@ class Calc extends Component{
                         <PostComment />
                     </div>
                     <div className="col-md-6 col-12 mt-4 d-flex justify-content-center">
-                        <Pagination paginate={this.paginate}/>
+                        <Pagination paginate={this.paginate} totalComments={this.state.commentArr.length} commentPerPage={this.state.commentPerPage}/>
                     </div>
                 </div>
                 <hr style={{background: '#55b8cf'}}/>

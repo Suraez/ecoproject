@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Pagination(props) {
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(props.totalComments/props.commentPerPage); i++) {
+    pageNumbers.push(i)
+  }
   return (
     <div>
       <nav aria-label="Page navigation example">
@@ -12,21 +16,16 @@ export default function Pagination(props) {
               <span className="sr-only">Previous</span>
             </Link>
           </li>
-          <li className="page-item">
-            <Link className="page-link" to="#!">
-              1
-            </Link>
-          </li>
-          <li className="page-item" onClick={() => props.paginate(2)}>
-            <Link className="page-link" to="/calc">
-              2
-            </Link>
-          </li>
-          <li className="page-item">
-            <Link className="page-link" to="#!">
-              3
-            </Link>
-          </li>
+          {pageNumbers.map(pageNumber => {
+            return (
+            <li key={pageNumber} className="page-item" onClick={() => props.paginate(pageNumber)}>
+              <Link className="page-link" to="#!">
+                {pageNumber}
+              </Link>
+            </li>
+            )
+          })}
+          
           <li className="page-item">
             <Link className="page-link" to="#!" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>

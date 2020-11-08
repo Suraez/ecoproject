@@ -16,7 +16,6 @@ function App() {
     axios.get('/likes/likes.json')
       .then(res => {
         setLikes(res.data);
-          console.log(res.data);
       })
       .catch(err => console.log(err))
 
@@ -48,11 +47,7 @@ function App() {
         />
         <Route path="/calculators" exact component={Calculators} />
         <Route path="/developer" exact component={Developer} />
-        <Route
-          path="/calc"
-          exact
-          component={Calc}
-        />
+        <Route path="/calc/:id" exact component={Calc} />
       </Router>
     </div>
   );
