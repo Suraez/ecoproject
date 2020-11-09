@@ -7,10 +7,9 @@ import Comment from './Comment'
 import PostComment from './PostComment'
 import assets from '../assets'
 import axios from "../axiosConfig"
-import AnsModal from './AnsModal'
 import Pagination from './UI/Pagination'
 import { Component } from 'react'
-
+import AnsModal from './AnsModal'
 class Calc extends Component{
     state = {
         commentArr: [],
@@ -18,7 +17,8 @@ class Calc extends Component{
         commentPerPage: 4,
         imagePath: null,
         firstSum: null,
-        functionRef: null
+        functionRef: null,
+        isOpen: false
     }
 
     componentDidMount () {
@@ -79,6 +79,7 @@ class Calc extends Component{
 
         return (
         <>
+        
             <div className="container bg-white shadow text-muted p-4">
                 <Navigation />
                 <div className="row d-flex justify-content-center m-2">
@@ -109,9 +110,11 @@ class Calc extends Component{
                             <input type="text" id="thirdInput" className="form-control" placeholder="e.g. 5"/>
                         </div>
                         <div className="text-center">
-                            <AnsModal />
+                            <button className="btn btn-info" onClick={() => this.setState({isOpen: true})}>Calculate</button>
+                            <AnsModal open={this.state.isOpen} onClose={() => this.setState({isOpen: false})}/>
                         </div>
                     </div>
+                    
                 </div>
                 <h4>Comments</h4>
                 <hr style={{background: '#55b8cf'}}/>
