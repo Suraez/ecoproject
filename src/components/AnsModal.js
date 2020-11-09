@@ -1,10 +1,13 @@
 import React from 'react';
 // import styles from "../../src/assets/css/ansmodal.module.css"
+import ReactDOM from 'react-dom'
+
 const MODAL_STYLES = {
   positon: 'fixed',
   top: '50%',
   left: '50%',
-  transform: 'translate(0%, -50%)',
+  width: '85%',
+  transform: 'translate(10%, -500%)',
   backgroundColor: '#fff',
   padding: '50px',
   zIndex: 1000,
@@ -22,11 +25,12 @@ const OVERLAY_STYLES = {
 
 const AnsModal = ({open, onClose, children}) => {
   if (!open) return null;
-  return (
+  return ReactDOM.createPortal(
     <>
       <div style={OVERLAY_STYLES} onClick={onClose}></div>
       <div style={MODAL_STYLES}>{children}</div>
-    </>
+    </>,
+    document.getElementById('portal')
   );
 }
 
