@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import './App.css';
 // import Calculator from './components/Calculator'
 import Calculators from './components/Calculators';
@@ -31,7 +31,9 @@ function App() {
     }
   return (
     <div className="App">
+
       <Router>
+        <Switch>
         <Route
           path="/"
           exact
@@ -48,7 +50,10 @@ function App() {
         <Route path="/calculators" exact component={Calculators} />
         <Route path="/developer" exact component={Developer} />
         <Route path="/calc/:id" exact component={Calc} />
-      </Router>
+        <Route  render={() => <h1>Oops! Invalid URL</h1>} />
+        </Switch>
+        
+        </Router>
     </div>
   );
 }

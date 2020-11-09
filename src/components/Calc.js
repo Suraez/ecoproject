@@ -10,6 +10,9 @@ import axios from "../axiosConfig"
 import Pagination from './UI/Pagination'
 import { Component } from 'react'
 import AnsModal from './AnsModal'
+import allFunctions from "./HelperFunctions"
+
+
 class Calc extends Component{
     state = {
         commentArr: [],
@@ -17,8 +20,12 @@ class Calc extends Component{
         commentPerPage: 4,
         imagePath: null,
         firstSum: null,
-        functionRef: null,
-        isOpen: false
+        isOpen: false,
+        firstInput: "",
+        secondInput: "",
+        thirdInput: "",
+        execFunction: null,
+        ans: ""
     }
 
     componentDidMount () {
@@ -45,32 +52,43 @@ class Calc extends Component{
     getStates = (id) => {
         switch (id) {
             case '1':
-                this.setState({imagePath: 'a1', firstSum: 'P'})
+                this.setState({imagePath: 'formula1', firstSum: 'P', execFunction: allFunctions.firstFunction})
                 break;
             case '2':
-                this.setState({imagePath: 'a2', firstSum: 'A'})
+                this.setState({imagePath: 'formula2', firstSum: 'A', execFunction: allFunctions.secondFunction})
                 break;
             case '3':
-                this.setState({imagePath: 'a3', firstSum: 'A'})
+                this.setState({imagePath: 'formula3', firstSum: 'A', execFunction: allFunctions.thirdFunction})
                 break;
             case '4':
-                this.setState({imagePath: 'a1', firstSum: 'P'})
+                this.setState({imagePath: 'formula4', firstSum: 'F', execFunction: allFunctions.fourthFunction})
                 break;
             case '5':
-                this.setState({imagePath: 'a1', firstSum: 'P'})
+                this.setState({imagePath: 'formula5', firstSum: 'P', execFunction: allFunctions.fifthFunction})
                 break;
             case '6':
-                this.setState({imagePath: 'a1', firstSum: 'P'})
+                this.setState({imagePath: 'formula6', firstSum: 'F', execFunction: allFunctions.sixthFunction})
                 break;
             case '7':
-                this.setState({imagePath: 'a4', firstSum: 'G'})
+                this.setState({imagePath: 'formula7', firstSum: 'G', execFunction: allFunctions.seventhFunction})
                 break;
             default:
-                this.setState({imagePath: 'a1', firstSum: 'P'})
+                this.setState({imagePath: 'formula8', firstSum: 'F', execFunction: allFunctions.eighthFunction})
                 break;
         }
     }
+
+    onCalculateHandler = () => {
+        const ans = this.state.execFunction(+this.state.firstInput, +this.state.secondInput, +this.state.thirdInput);
+        this.setState({isOpen: true, ans})
+    }
     
+    onChangeHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
     render() {
         const updatedCommentArr = [...this.state.commentArr];
         const indexOfLastComment = this.state.currentPage * this.state.commentPerPage;
@@ -99,26 +117,32 @@ class Calc extends Component{
                         <hr style={{background: '#55b8cf', height: '6px'}}/>
                         <div className="form-group">
                             <label htmlFor="firstInput">{this.state.firstSum} value</label>
-                            <input type="text"  id="firstInput" className="form-control" placeholder="e.g. 10000"/>
+                            <input type="text"  id="firstInput" onChange={this.onChangeHandler} name="firstInput" value={this.state.firstInput} className="form-control" placeholder="e.g. 10000"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="secondInput">i value</label>
-                            <input type="text" id="secondInput" className="form-control" placeholder="e.g. type 0.1 for 10%"/>
+                            <input type="text" id="secondInput" onChange={this.onChangeHandler} name="secondInput" value={this.state.secondInput} className="form-control" placeholder="e.g. type 0.1 for 10%"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="thirdInput">n value</label>
-                            <input type="text" id="thirdInput" className="form-control" placeholder="e.g. 5"/>
+                            <input type="text" id="thirdInput" onChange={this.onChangeHandler} name="thirdInput" value={this.state.thirdInput}  className="form-control" placeholder="e.g. 5"/>
                         </div>
                         <div className="text-center">
-                            <button className="btn btn-info" onClick={() => this.setState({isOpen: true})}>Calculate</button>
-                            <AnsModal open={this.state.isOpen} onClose={() => this.setState({isOpen: false})}/>
+                            <button className="btn btn-info" onClick={this.onCalculateHandler}>Calculate</button>
+                            <AnsModal open={this.state.isOpen} onClose={() => this.setState({isOpen: false})}>
+                                <div className="modal-header">
+                                    <h4>Answer</h4>
+                                    <button className={`${styles.Right} btn-info`} onClick={() => this.setState({isOpen: false})}>X</button>
+                                </div>
+                                <div className="modal-body">
+                                    <h3>{this.state.ans ? this.state.ans : <p>Oops ! Put the correct valules</p>}</h3>
+                                </div>
+                            </AnsModal>
                         </div>
                     </div>
-                    
                 </div>
                 <h4>Comments</h4>
                 <hr style={{background: '#55b8cf'}}/>
-    
                 <div className="row">
                     <div className="col-md-6 col-12">
                         {slicedCommentArr && slicedCommentArr.map(comment => <Comment  key={comment.id} date={comment.date} name={comment.name} comment={comment.comment}/>)} 
@@ -131,8 +155,7 @@ class Calc extends Component{
                     </div>
                 </div>
                 <hr style={{background: '#55b8cf'}}/>
-                <Footer />
-                
+                <Footer />  
             </div>
             
         </>

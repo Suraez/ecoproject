@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
 import styles from '../assets/css/header.module.css'
 import Calculator from './Calculator.js'
 import Footer from './Footer'
@@ -8,7 +7,6 @@ import LikeComment from './LikeComment'
 import Navigation from './Navigation'
 
 export default function Header(props) {
-
     return (
       <div className="container shadow bg-white text-muted">
         <div className="row">

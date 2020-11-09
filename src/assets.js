@@ -1,8 +1,12 @@
 const assets = {
-    a2: require("./assets/images/a2.jpg"),
-    a1: require("./assets/images/a1.jpg"),
-    a3: require("./assets/images/a3.jpg"),
-    a4: require("./assets/images/a4.jpg"),
+   formula1: require("../src/assets/images/f1.jpg"),
+   formula2: require("../src/assets/images/f2.jpg"),
+   formula3: require("../src/assets/images/f3.jpg"),
+   formula4: require("../src/assets/images/f4.jpg"),
+   formula5: require("../src/assets/images/f5.jpg"),
+   formula6: require("../src/assets/images/f6.jpg"),
+   formula7: require("../src/assets/images/f7.jpg"),
+   formula8: require("../src/assets/images/f8.jpg"),
 }
 
 export default assets;
