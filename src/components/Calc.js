@@ -135,7 +135,7 @@ class Calc extends Component{
                                     <button className={`${styles.Right} btn-info`} onClick={() => this.setState({isOpen: false})}>X</button>
                                 </div>
                                 <div className="modal-body">
-                                    <h3>{this.state.ans ? this.state.ans : <p>Oops ! Put the correct valules</p>}</h3>
+                                    <h3>{this.state.ans && !isNaN(this.state.ans) ? this.state.ans : <p>Oops ! Put the correct valules</p>}</h3>
                                 </div>
                             </AnsModal>
                         </div>

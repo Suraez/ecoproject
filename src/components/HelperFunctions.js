@@ -18,19 +18,33 @@ const allFunction = {
         return (numerator/denominator).toFixed(2)
     },
     fourthFunction: function(firstValue, secondValue, thirdValue) {
-        return 100.2;
+        const denominator = (secondValue + 1) ** thirdValue 
+        const numerator = firstValue 
+        return (numerator/denominator).toFixed(2)
     },
     fifthFunction: function(firstValue, secondValue, thirdValue) {
-        return 100.2;
+        const temp = (secondValue + 1) ** thirdValue
+        const denominator = (temp - 1)
+        const numerator = temp * secondValue * firstValue
+        return (numerator/denominator).toFixed(2)
     },
     sixthFunction: function(firstValue, secondValue, thirdValue) {
-        return 100.2;
+        const temp = (secondValue + 1) ** thirdValue
+        const numerator = (temp - 1) * firstValue 
+        const denominator =  secondValue
+        return (numerator/denominator).toFixed(2)
     },
     seventhFunction: function(firstValue, secondValue, thirdValue) {
-        return 100.2;
+        const temp = (secondValue + 1) ** thirdValue
+        const numerator = (temp - 1 - thirdValue*secondValue) * firstValue 
+        const denominator =  secondValue ** 2
+        return (numerator/denominator).toFixed(2)
     },
     eighthFunction: function(firstValue, secondValue, thirdValue) {
-        return 100.2;
+        const temp = (secondValue + 1) ** thirdValue
+        const denominator = (temp - 1 - thirdValue*secondValue)  
+        const numerator =  (secondValue ** 2) * firstValue
+        return (numerator/denominator).toFixed(2)
     } 
 }
 
