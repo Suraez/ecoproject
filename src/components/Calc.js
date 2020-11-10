@@ -122,7 +122,7 @@ class Calc extends Component{
                     className={styles.image}
                   />
                 </div>
-                <div className="col-md-6 col-12">
+                <div className="col-md-6 col-12 mt-3">
                   <h4>Fill in the values.And get answers in seconds.</h4>
                   <hr style={{ background: "#55b8cf", height: "6px" }} />
                   <div className="form-group">
@@ -199,7 +199,7 @@ class Calc extends Component{
               <h4>Comments</h4>
               <hr style={{ background: "#55b8cf" }} />
               <div className="row">
-                <div className="col-md-6 col-12">
+              <div className="col-md-6 col-12">
                   {slicedCommentArr &&
                     slicedCommentArr.map((comment) => (
                       <Comment
@@ -209,18 +209,18 @@ class Calc extends Component{
                         comment={comment.comment}
                       />
                     ))}
+                    <div className="d-flex justify-content-center m-4">
+                            <Pagination
+                            paginate={this.paginate}
+                            totalComments={this.state.commentArr.length}
+                            commentPerPage={this.state.commentPerPage}
+                            page={this.state.currentPage}
+                            hasNextPage={hasNextPage}
+                        />
+                    </div>
                 </div>
                 <div className="col-md-6 col-12">
-                  <PostComment />
-                </div>
-                <div className="col-md-6 col-12 mt-4 d-flex justify-content-center">
-                  <Pagination
-                    paginate={this.paginate}
-                    totalComments={this.state.commentArr.length}
-                    commentPerPage={this.state.commentPerPage}
-                    page={this.state.currentPage}
-                    hasNextPage={hasNextPage}
-                  />
+                <PostComment />
                 </div>
               </div>
               <hr style={{ background: "#55b8cf" }} />

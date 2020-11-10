@@ -14,3 +14,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* added css */
+.page-item.active .page-link{
+  background-color: #5AC3DC !important;
+  border-color: #5AC3DC !important;
+}
+
+a{
+  color: #5AC3DC !important;
+}
