@@ -17,7 +17,7 @@ class Calc extends Component{
     state = {
         commentArr: [],
         currentPage: 1,
-        commentPerPage: 4,
+        commentPerPage: 5,
         imagePath: null,
         firstSum: null,
         isOpen: false,
@@ -96,8 +96,8 @@ class Calc extends Component{
         const slicedCommentArr = updatedCommentArr.slice(indexOfFirstComment, indexOfLastComment);
         const hasNextPage =
           !(
-            this.state.commentArr.length > indexOfFirstComment &&
-            this.state.commentArr.length < indexOfLastComment
+            this.state.commentArr.length >= indexOfFirstComment &&
+            this.state.commentArr.length <= indexOfLastComment
           ) && indexOfFirstComment < this.state.commentArr.length;
 
         // console.log(this.state.commentArr.length);
@@ -218,7 +218,7 @@ class Calc extends Component{
                     paginate={this.paginate}
                     totalComments={this.state.commentArr.length}
                     commentPerPage={this.state.commentPerPage}
-                    currentPage={this.state.currentPage}
+                    page={this.state.currentPage}
                     hasNextPage={hasNextPage}
                   />
                 </div>

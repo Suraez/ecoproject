@@ -1,40 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Pagination} from 'react-bootstrap'
 
-export default function Pagination(props) {
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(props.totalComments/props.commentPerPage); i++) {
-    pageNumbers.push(i)
+export default function CommentPagination(props) {
+  function adjustPage (amount) {
+    props.paginate(props.page+amount)
   }
-  console.log(props.currentPage, "hell", props.hasNextPage);
   return (
-    <div>
-      <nav aria-label="Page navigation example">
-        <ul className="pagination">
-          <li className="page-item">
-            <Link className="page-link" to="#!" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span className="sr-only">Previous</span>
-            </Link>
-          </li>
-          {pageNumbers.map(pageNumber => {
-            return (
-            <li key={pageNumber} className="page-item" onClick={() => props.paginate(pageNumber)}>
-              <Link className="page-link" to="#!">
-                {pageNumber}
-              </Link>
-            </li>
-            )
-          })}
-          
-          <li className="page-item">
-            <Link className="page-link" to="#!" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span className="sr-only">Next</span>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <Pagination>
+      {props.page !== 1 && <Pagination.Prev onClick={() => adjustPage(-1)} />}
+      {props.page !== 1 && <Pagination.Item onClick={() => props.paginate(1)}>1</Pagination.Item>}
+      {props.page > 2 && <Pagination.Ellipsis />}
+      {props.page > 2 && <Pagination.Item onClick={() => adjustPage(-1)}>{props.page - 1}</Pagination.Item>}
+      <Pagination.Item active>{props.page}</Pagination.Item>
+      {props.hasNextPage && <Pagination.Item onClick={() => adjustPage(1)}>{props.page + 1}</Pagination.Item>}
+      {props.hasNextPage && <Pagination.Next onClick={() => adjustPage(1)} />}
+    </Pagination>
   );
 }
