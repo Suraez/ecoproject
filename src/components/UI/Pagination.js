@@ -6,6 +6,7 @@ export default function Pagination(props) {
   for (let i = 1; i <= Math.ceil(props.totalComments/props.commentPerPage); i++) {
     pageNumbers.push(i)
   }
+  console.log(props.currentPage, "hell", props.hasNextPage);
   return (
     <div>
       <nav aria-label="Page navigation example">

@@ -25,7 +25,7 @@ class Calc extends Component{
         secondInput: "",
         thirdInput: "",
         execFunction: null,
-        ans: ""
+        ans: "",
     }
 
     componentDidMount () {
@@ -94,72 +94,140 @@ class Calc extends Component{
         const indexOfLastComment = this.state.currentPage * this.state.commentPerPage;
         const indexOfFirstComment = indexOfLastComment - this.state.commentPerPage;
         const slicedCommentArr = updatedCommentArr.slice(indexOfFirstComment, indexOfLastComment);
+        const hasNextPage =
+          !(
+            this.state.commentArr.length > indexOfFirstComment &&
+            this.state.commentArr.length < indexOfLastComment
+          ) && indexOfFirstComment < this.state.commentArr.length;
 
+        // console.log(this.state.commentArr.length);
         return (
-        <>
-        
+          <>
             <div className="container bg-white shadow text-muted p-4">
-                <Navigation />
-                <div className="row d-flex justify-content-center m-2">
-                    <div className="col-md-8 col-12 text-justify">
-                        Let this calculator do the heavy lifting.This formula helps you to calculate equivalent worth (Future Worth, F) given the values of Present Worth (P),
-                        interest rate per year (effective interest rate) and time (investment duration).
-                    </div>
+              <Navigation />
+              <div className="row d-flex justify-content-center m-2">
+                <div className="col-md-8 col-12 text-justify">
+                  Let this calculator do the heavy lifting.This formula helps
+                  you to calculate equivalent worth (Future Worth, F) given the
+                  values of Present Worth (P), interest rate per year (effective
+                  interest rate) and time (investment duration).
                 </div>
-    
-    
-                <div className="row">
-                    <div className="col-md-6 col-12">
-                        <img src={assets[this.state.imagePath]} alt="image1" className={styles.image}/>
-                    </div>
-                    <div className="col-md-6 col-12">
-                        <h4>Fill in the values.And get answers in seconds.</h4>
-                        <hr style={{background: '#55b8cf', height: '6px'}}/>
-                        <div className="form-group">
-                            <label htmlFor="firstInput">{this.state.firstSum} value</label>
-                            <input type="text"  id="firstInput" onChange={this.onChangeHandler} name="firstInput" value={this.state.firstInput} className="form-control" placeholder="e.g. 10000"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="secondInput">i value</label>
-                            <input type="text" id="secondInput" onChange={this.onChangeHandler} name="secondInput" value={this.state.secondInput} className="form-control" placeholder="e.g. type 0.1 for 10%"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="thirdInput">n value</label>
-                            <input type="text" id="thirdInput" onChange={this.onChangeHandler} name="thirdInput" value={this.state.thirdInput}  className="form-control" placeholder="e.g. 5"/>
-                        </div>
-                        <div className="text-center">
-                            <button className="btn btn-info" onClick={this.onCalculateHandler}>Calculate</button>
-                            <AnsModal open={this.state.isOpen} onClose={() => this.setState({isOpen: false})}>
-                                <div className="modal-header">
-                                    <h4>Answer</h4>
-                                    <button className={`${styles.Right} btn-info`} onClick={() => this.setState({isOpen: false})}>X</button>
-                                </div>
-                                <div className="modal-body">
-                                    <h3>{this.state.ans && !isNaN(this.state.ans) ? this.state.ans : <p>Oops ! Put the correct valules</p>}</h3>
-                                </div>
-                            </AnsModal>
-                        </div>
-                    </div>
+              </div>
+
+              <div className="row">
+                <div className="col-md-6 col-12">
+                  <img
+                    src={assets[this.state.imagePath]}
+                    alt="image1"
+                    className={styles.image}
+                  />
                 </div>
-                <h4>Comments</h4>
-                <hr style={{background: '#55b8cf'}}/>
-                <div className="row">
-                    <div className="col-md-6 col-12">
-                        {slicedCommentArr && slicedCommentArr.map(comment => <Comment  key={comment.id} date={comment.date} name={comment.name} comment={comment.comment}/>)} 
-                    </div>
-                    <div className="col-md-6 col-12">
-                        <PostComment />
-                    </div>
-                    <div className="col-md-6 col-12 mt-4 d-flex justify-content-center">
-                        <Pagination paginate={this.paginate} totalComments={this.state.commentArr.length} commentPerPage={this.state.commentPerPage}/>
-                    </div>
+                <div className="col-md-6 col-12">
+                  <h4>Fill in the values.And get answers in seconds.</h4>
+                  <hr style={{ background: "#55b8cf", height: "6px" }} />
+                  <div className="form-group">
+                    <label htmlFor="firstInput">
+                      {this.state.firstSum} value
+                    </label>
+                    <input
+                      type="text"
+                      id="firstInput"
+                      onChange={this.onChangeHandler}
+                      name="firstInput"
+                      value={this.state.firstInput}
+                      className="form-control"
+                      placeholder="e.g. 10000"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="secondInput">i value</label>
+                    <input
+                      type="text"
+                      id="secondInput"
+                      onChange={this.onChangeHandler}
+                      name="secondInput"
+                      value={this.state.secondInput}
+                      className="form-control"
+                      placeholder="e.g. type 0.1 for 10%"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="thirdInput">n value</label>
+                    <input
+                      type="text"
+                      id="thirdInput"
+                      onChange={this.onChangeHandler}
+                      name="thirdInput"
+                      value={this.state.thirdInput}
+                      className="form-control"
+                      placeholder="e.g. 5"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <button
+                      className="btn btn-info"
+                      onClick={this.onCalculateHandler}
+                    >
+                      Calculate
+                    </button>
+                    <AnsModal
+                      open={this.state.isOpen}
+                      onClose={() => this.setState({ isOpen: false })}
+                    >
+                      <div className="modal-header">
+                        <h4>Answer</h4>
+                        <button
+                          className={`${styles.Right} btn-info`}
+                          onClick={() => this.setState({ isOpen: false })}
+                        >
+                          X
+                        </button>
+                      </div>
+                      <div className="modal-body">
+                        <h3>
+                          {this.state.ans && !isNaN(this.state.ans) ? (
+                            this.state.ans
+                          ) : (
+                            <p>Oops ! Put the correct valules</p>
+                          )}
+                        </h3>
+                      </div>
+                    </AnsModal>
+                  </div>
                 </div>
-                <hr style={{background: '#55b8cf'}}/>
-                <Footer />  
+              </div>
+              <h4>Comments</h4>
+              <hr style={{ background: "#55b8cf" }} />
+              <div className="row">
+                <div className="col-md-6 col-12">
+                  {slicedCommentArr &&
+                    slicedCommentArr.map((comment) => (
+                      <Comment
+                        key={comment.id}
+                        date={comment.date}
+                        name={comment.name}
+                        comment={comment.comment}
+                      />
+                    ))}
+                </div>
+                <div className="col-md-6 col-12">
+                  <PostComment />
+                </div>
+                <div className="col-md-6 col-12 mt-4 d-flex justify-content-center">
+                  <Pagination
+                    paginate={this.paginate}
+                    totalComments={this.state.commentArr.length}
+                    commentPerPage={this.state.commentPerPage}
+                    currentPage={this.state.currentPage}
+                    hasNextPage={hasNextPage}
+                  />
+                </div>
+              </div>
+              <hr style={{ background: "#55b8cf" }} />
+              <Footer />
             </div>
-            
-        </>
-        )
+          </>
+        );
     }
 }
 export default Calc;

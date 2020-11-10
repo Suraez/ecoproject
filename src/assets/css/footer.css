@@ -1,3 +1,19 @@
 a.social{
     margin: 0 1rem;
 }
+
+
+.iconSize{
+    font-size: 30px;
+}
+
+.developerName {
+    display: block;
+    float: right;
+}
+
+@media(max-width: 500px) {
+    .developerName {
+        float: left;
+    } 
+}
