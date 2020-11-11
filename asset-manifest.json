@@ -1,29 +1,35 @@
 {
   "files": {
-    "main.css": "/ecoproject/static/css/main.9c55c4f5.chunk.css",
-    "main.js": "/ecoproject/static/js/main.896b38a5.chunk.js",
-    "main.js.map": "/ecoproject/static/js/main.896b38a5.chunk.js.map",
+    "main.css": "/ecoproject/static/css/main.00018850.chunk.css",
+    "main.js": "/ecoproject/static/js/main.d3e817a9.chunk.js",
+    "main.js.map": "/ecoproject/static/js/main.d3e817a9.chunk.js.map",
     "runtime-main.js": "/ecoproject/static/js/runtime-main.d308d5cf.js",
     "runtime-main.js.map": "/ecoproject/static/js/runtime-main.d308d5cf.js.map",
     "static/css/2.8aa5a7f8.chunk.css": "/ecoproject/static/css/2.8aa5a7f8.chunk.css",
-    "static/js/2.b7ed222d.chunk.js": "/ecoproject/static/js/2.b7ed222d.chunk.js",
-    "static/js/2.b7ed222d.chunk.js.map": "/ecoproject/static/js/2.b7ed222d.chunk.js.map",
+    "static/js/2.5845d154.chunk.js": "/ecoproject/static/js/2.5845d154.chunk.js",
+    "static/js/2.5845d154.chunk.js.map": "/ecoproject/static/js/2.5845d154.chunk.js.map",
     "index.html": "/ecoproject/index.html",
-    "precache-manifest.6b6107a9a49a59a21402a0ae679653fa.js": "/ecoproject/precache-manifest.6b6107a9a49a59a21402a0ae679653fa.js",
+    "precache-manifest.b348ae2c1ddeea66b425ebdfc6fd96c6.js": "/ecoproject/precache-manifest.b348ae2c1ddeea66b425ebdfc6fd96c6.js",
     "service-worker.js": "/ecoproject/service-worker.js",
     "static/css/2.8aa5a7f8.chunk.css.map": "/ecoproject/static/css/2.8aa5a7f8.chunk.css.map",
-    "static/css/main.9c55c4f5.chunk.css.map": "/ecoproject/static/css/main.9c55c4f5.chunk.css.map",
-    "static/js/2.b7ed222d.chunk.js.LICENSE.txt": "/ecoproject/static/js/2.b7ed222d.chunk.js.LICENSE.txt",
-    "static/media/a1.jpg": "/ecoproject/static/media/a1.218aee3b.jpg",
-    "static/media/a2.jpg": "/ecoproject/static/media/a2.3ebdba2c.jpg",
-    "static/media/a3.jpg": "/ecoproject/static/media/a3.98b32c54.jpg",
-    "static/media/a4.jpg": "/ecoproject/static/media/a4.0caf4ca8.jpg"
+    "static/css/main.00018850.chunk.css.map": "/ecoproject/static/css/main.00018850.chunk.css.map",
+    "static/js/2.5845d154.chunk.js.LICENSE.txt": "/ecoproject/static/js/2.5845d154.chunk.js.LICENSE.txt",
+    "static/media/f1.jpg": "/ecoproject/static/media/f1.e16f9190.jpg",
+    "static/media/f2.jpg": "/ecoproject/static/media/f2.ffd0dcc7.jpg",
+    "static/media/f3.jpg": "/ecoproject/static/media/f3.3857c503.jpg",
+    "static/media/f4.jpg": "/ecoproject/static/media/f4.51b8de05.jpg",
+    "static/media/f5.jpg": "/ecoproject/static/media/f5.6a36baca.jpg",
+    "static/media/f6.jpg": "/ecoproject/static/media/f6.a376b220.jpg",
+    "static/media/f7.jpg": "/ecoproject/static/media/f7.389b918a.jpg",
+    "static/media/f8.jpg": "/ecoproject/static/media/f8.18b6f2e8.jpg",
+    "static/media/man.svg": "/ecoproject/static/media/man.75e45a85.svg",
+    "static/media/my-pic.jpg": "/ecoproject/static/media/my-pic.3103dd7a.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.d308d5cf.js",
     "static/css/2.8aa5a7f8.chunk.css",
-    "static/js/2.b7ed222d.chunk.js",
-    "static/css/main.9c55c4f5.chunk.css",
-    "static/js/main.896b38a5.chunk.js"
+    "static/js/2.5845d154.chunk.js",
+    "static/css/main.00018850.chunk.css",
+    "static/js/main.d3e817a9.chunk.js"
   ]
 }
