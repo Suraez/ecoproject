@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "40b62a7286039c781585ebf161abe50a",
+    "revision": "f9c59e32fb7824df24e949576414cf06",
     "url": "/ecoproject/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ecoproject/static/css/2.8aa5a7f8.chunk.css"
   },
   {
-    "revision": "88b9fbfa16d3dc6d0984",
-    "url": "/ecoproject/static/css/main.00018850.chunk.css"
+    "revision": "1e1fd2c0c0f26c478175",
+    "url": "/ecoproject/static/css/main.6f0a21ea.chunk.css"
   },
   {
     "revision": "d9d9a4be2b8a2936d68f",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ecoproject/static/js/2.5845d154.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "88b9fbfa16d3dc6d0984",
-    "url": "/ecoproject/static/js/main.45470e05.chunk.js"
+    "revision": "1e1fd2c0c0f26c478175",
+    "url": "/ecoproject/static/js/main.444d4b06.chunk.js"
   },
   {
     "revision": "50344e106c3a1c6139b6",
