@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import './App.css';
-// import Calculator from './components/Calculator'
 import Calculators from './components/Calculators';
 import Developer from './Developer';
 import Calc from './components/Calc';
@@ -35,7 +34,7 @@ function App() {
       <Router>
         <Switch>
         <Route
-          path="/"
+          path="/ecoproject"
           exact
           render={(props) => (
             <Header

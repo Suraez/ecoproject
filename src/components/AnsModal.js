@@ -1,5 +1,4 @@
 import React from 'react';
-// import styles from "../../src/assets/css/ansmodal.module.css"
 import ReactDOM from 'react-dom'
 
 const MODAL_STYLES = {

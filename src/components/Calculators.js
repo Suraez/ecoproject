@@ -1,7 +1,5 @@
 import React from 'react'
 import {  Link } from 'react-router-dom'
-// import Calc from './Calc'
-
 import Calculator from './Calculator'
 import Footer from './Footer'
 import Navigation from './Navigation'
