@@ -14,7 +14,7 @@ export default function PostComment() {
         setName("")
         setEmail("")
         setComment("")
-        alert("Thanks for the comment! Your comment will be posted soon.")
+        alert("Thanks for the comment! Your comment is submitted for approval.")
       })
       .catch((err) => console.log(err));
   };
