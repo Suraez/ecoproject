@@ -58,7 +58,7 @@ class Calc extends Component{
                 this.setState({imagePath: 'formula2', firstSum: 'A', execFunction: allFunctions.secondFunction})
                 break;
             case '3':
-                this.setState({imagePath: 'formula3', firstSum: 'A', execFunction: allFunctions.thirdFunction})
+                this.setState({imagePath: 'formula3', firstSum: 'F', execFunction: allFunctions.thirdFunction})
                 break;
             case '4':
                 this.setState({imagePath: 'formula4', firstSum: 'F', execFunction: allFunctions.fourthFunction})
@@ -67,7 +67,7 @@ class Calc extends Component{
                 this.setState({imagePath: 'formula5', firstSum: 'P', execFunction: allFunctions.fifthFunction})
                 break;
             case '6':
-                this.setState({imagePath: 'formula6', firstSum: 'F', execFunction: allFunctions.sixthFunction})
+                this.setState({imagePath: 'formula6', firstSum: 'A', execFunction: allFunctions.sixthFunction})
                 break;
             case '7':
                 this.setState({imagePath: 'formula7', firstSum: 'G', execFunction: allFunctions.seventhFunction})
@@ -185,6 +185,7 @@ class Calc extends Component{
                       </div>
                       <div className="modal-body">
                         <h3>
+                          {this.state.ans && !isNaN(this.state.ans) ? `${this.state.firstSum} = ` : null}
                           {this.state.ans && !isNaN(this.state.ans) ? (
                             this.state.ans
                           ) : (
