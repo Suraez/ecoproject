@@ -36,7 +36,7 @@ function App() {
       <Router>
         <Switch>
         <Route
-          path="/ecoproject"
+          path="/"
           exact
           render={(props) => (
             <Header
