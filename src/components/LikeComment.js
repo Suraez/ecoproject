@@ -19,8 +19,8 @@ export default function LikeComment(props) {
     },[comments])
 
     return (
-      <>
-        <div className="mr-4">
+      <div className="text-center">
+        <div>
           <FontAwesomeIcon
             icon={props.isLiked ? f2 : faHeart}
             size="2x"
@@ -30,10 +30,10 @@ export default function LikeComment(props) {
           <p>{props.totalLikes} Likes</p>
         </div>
 
-        <div className="mr-4">
+        <div>
           <FontAwesomeIcon icon={faComment} size="2x" />
           <p>{comments} comments</p>
         </div>
-      </>
+      </div>
     );
 }
