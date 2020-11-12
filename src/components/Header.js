@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import styles from '../assets/css/header.module.css'
 import Calculator from './Calculator.js'
 import Footer from './Footer'
@@ -33,7 +33,7 @@ export default function Header(props) {
             <h4 className={styles.textStyles}>
               Click on any of the calculator
             </h4>
-            <Calculator formula="P (F/P, i%, n)" label="Future Worth" />
+            <Link to="/calc/1"><Calculator formula="P (F/P, i%, n)" label="Future Worth" /></Link> 
             <Calculator formula="A (P/A, i%, n)" label="Present Worth" />
             <Calculator formula="F (A/F, i%, n)" label="Annual Worth" />
             <Calculator formula="G (F/G, i%, n)" label="Future Worth" />
