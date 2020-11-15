@@ -100,17 +100,15 @@ class Calc extends Component{
             this.state.commentArr.length <= indexOfLastComment
           ) && indexOfFirstComment < this.state.commentArr.length;
 
-        // console.log(this.state.commentArr.length);
         return (
           <>
             <div className="container bg-white shadow text-muted p-4">
               <Navigation />
               <div className="row d-flex justify-content-center m-2">
                 <div className="col-md-8 col-12 text-justify">
-                  Let this calculator do the heavy lifting.This formula helps
-                  you to calculate equivalent worth (Future Worth, F) given the
-                  values of Present Worth (P), interest rate per year (effective
-                  interest rate) and time (investment duration).
+                  Let this calculator do the heavy lifting. Just fill in the values
+                  and get the answers real quick.  And if you are happy with the results,
+                  share it with your friends cause' sharing is caring. Happy Engineering !!!
                 </div>
               </div>
 
@@ -185,7 +183,6 @@ class Calc extends Component{
                       </div>
                       <div className="modal-body">
                         <h3>
-                          {this.state.ans && !isNaN(this.state.ans) ? `${this.state.firstSum} = ` : null}
                           {this.state.ans && !isNaN(this.state.ans) ? (
                             this.state.ans
                           ) : (

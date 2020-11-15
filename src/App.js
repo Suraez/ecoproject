@@ -7,8 +7,6 @@ import Calc from './components/Calc';
 import Header from './components/Header'
 import axios from './axiosConfig'
 
-
-
 function App() {
   const [isLiked, setIsLiked] = useState(false);
   const [likes, setLikes] = useState(0);
@@ -32,7 +30,6 @@ function App() {
     }
   return (
     <div className="App">
-
       <Router>
         <Switch>
         <Route
@@ -49,11 +46,10 @@ function App() {
           )}
         />
         <Route path="/calculators" exact component={Calculators} />
-        <Route path="/developer" exact component={Developer} />
-        <Route path="/calc/:id" exact component={Calc} />
+        <Route path="/developer" component={Developer} />
+        <Route path="/calc/:id"  component={Calc} />
         <Route  render={() => <h1>Oops! Invalid URL</h1>} />
         </Switch>
-        
         </Router>
     </div>
   );

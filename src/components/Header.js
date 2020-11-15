@@ -29,16 +29,16 @@ export default function Header(props) {
         <div className="col-md-4 text-muted col-12 mt-3 text-center">
           <h4 className={styles.textStyles}>Click on any of the calculator</h4>
           <NavLink to="/calc/1">
-            <Calculator formula="P (F/P, i%, n)" label="Future Worth" />
+            <Calculator formula="P ( F/P, i%, n )" label="Future Worth" />
           </NavLink>
           <NavLink to="/calc/2">
-            <Calculator formula="A (P/A, i%, n)" label="Present Worth" />
+            <Calculator formula="A ( P/A, i%, n )" label="Present Worth" />
           </NavLink>
           <NavLink to="/calc/3">
-            <Calculator formula="F (A/F, i%, n)" label="Annual Worth" />
+            <Calculator formula="F ( A/F, i%, n )" label="Annual Worth" />
           </NavLink>
           <NavLink to="/calc/7">
-            <Calculator formula="G (F/G, i%, n)" label="Future Worth" />
+            <Calculator formula="G ( F/G, i%, n )" label="Future Worth" />
           </NavLink>
           <NavLink to="/calculators">
             <button className={`${styles.showMore}`}>Show More</button>
