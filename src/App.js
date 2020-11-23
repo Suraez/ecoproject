@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import './App.css';
 import Calculators from './components/Calculators';
 import Developer from './Developer';
-import Calc from './components/Calc';
+import Calc from './containers/Calc';
 import Header from './components/Header'
 import axios from './axiosConfig'
 

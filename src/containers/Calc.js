@@ -1,47 +1,50 @@
 import React  from 'react'
 
-import Footer from './Footer'
-import Navigation from './Navigation'
+import Footer from '../components/Footer'
+import Navigation from '../components/Navigation'
 import styles from "../assets/css/calc.module.css"
-import Comment from './Comment'
+import Comment from '../components/Comment'
 import PostComment from './PostComment'
 import assets from '../assets'
-import axios from "../axiosConfig"
-import Pagination from './UI/Pagination'
+import Pagination from '../components/UI/Pagination'
 import { Component } from 'react'
-import AnsModal from './AnsModal'
-import allFunctions from "./HelperFunctions"
+import AnsModal from '../components/AnsModal'
+import allFunctions from "../components/HelperFunctions"
 
+
+// importing redux functions
+import { fetchComments } from '../store/actions/comment'
+import { connect } from 'react-redux'
 
 class Calc extends Component{
     state = {
-        commentArr: [],
+        firstInput: "",
+        secondInput: "",
+        thirdInput: "",
         currentPage: 1,
         commentPerPage: 5,
         imagePath: null,
         firstSum: null,
         isOpen: false,
-        firstInput: "",
-        secondInput: "",
-        thirdInput: "",
         execFunction: null,
         ans: "",
     }
 
     componentDidMount () {
         this.getStates(this.props.match.params.id)
-        axios.get('/comments.json')
-        .then(res => {
-            let allComments = []
-            for (let key in res.data) {
-                allComments.push({
-                    id: key,
-                    ...res.data[key]
-                })
-            }
-            this.setState({commentArr: allComments})
-        })
-        .catch(err => console.log(err))
+        // axios.get('/comments.json')
+        //   .then(res => {
+        //       let allComments = []
+        //       for (let key in res.data) {
+        //           allComments.push({
+        //               id: key,
+        //               ...res.data[key]
+        //           })
+        //       }
+        //       dispatch(setComments(allComments))
+        //   })
+        //   .catch(err => console.log(err))
+        this.props.onFetchCommments()
     }
 
     paginate = (page) => {
@@ -90,15 +93,15 @@ class Calc extends Component{
     }
 
     render() {
-        const updatedCommentArr = [...this.state.commentArr];
+        const updatedCommentArr = [...this.props.comments];
         const indexOfLastComment = this.state.currentPage * this.state.commentPerPage;
         const indexOfFirstComment = indexOfLastComment - this.state.commentPerPage;
         const slicedCommentArr = updatedCommentArr.slice(indexOfFirstComment, indexOfLastComment);
         const hasNextPage =
           !(
-            this.state.commentArr.length >= indexOfFirstComment &&
-            this.state.commentArr.length <= indexOfLastComment
-          ) && indexOfFirstComment < this.state.commentArr.length;
+            this.props.comments.length >= indexOfFirstComment &&
+            this.props.comments.length <= indexOfLastComment
+          ) && indexOfFirstComment < this.props.comments.length;
 
         return (
           <>
@@ -210,7 +213,7 @@ class Calc extends Component{
                     <div className="d-flex justify-content-center m-4">
                             <Pagination
                             paginate={this.paginate}
-                            totalComments={this.state.commentArr.length}
+                            totalComments={this.props.comments.length}
                             commentPerPage={this.state.commentPerPage}
                             page={this.state.currentPage}
                             hasNextPage={hasNextPage}
@@ -228,4 +231,17 @@ class Calc extends Component{
         );
     }
 }
-export default Calc;
+
+const mapStateToProps = state => {
+  return {
+    comments: state.comments
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onFetchCommments: () => dispatch(fetchComments() )
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Calc);

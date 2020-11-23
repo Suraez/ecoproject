@@ -10,6 +10,7 @@ export default function Calculators() {
         <div className="container bg-white shadow p-2 text-muted">
         <Navigation />
         <div className="container">
+
             <div className="row">
                 <div className="col-md-4 col-12">
                  <Link to="/calc/1"><Calculator formula="P ( F/P, i%, n )" label="Future Worth"/></Link>
@@ -41,6 +42,7 @@ export default function Calculators() {
                     <Link to="/calc/8"><Calculator formula="F ( G/F, i%, n )" label="Gradient Worth"/></Link>
                 </div>
             </div>
+            
         </div>
         <hr style={{background: '#55b8cf'}}/>
         <Footer />

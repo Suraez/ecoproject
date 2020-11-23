@@ -49,7 +49,7 @@ export default function PostComment() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="usercomment">comment :</label>
+          <label htmlFor="usercomment">Comment :</label>
           <textarea
             type="text"
             id="usercomment"
@@ -60,11 +60,13 @@ export default function PostComment() {
             required
           />
         </div>
+        
         <div className="form-group">
           <button type="submit" className="btn btn-info">
             Post Comment
           </button>
         </div>
+        
       </form>
     </>
   );

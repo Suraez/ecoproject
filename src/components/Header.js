@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import styles from "../assets/css/header.module.css";
 import Calculator from "./Calculator.js";
 import Footer from "./Footer";
-import LikeComment from "./LikeComment";
+import LikeComment from "../containers/LikeComment";
 import Navigation from "./Navigation";
 
 export default function Header(props) {
