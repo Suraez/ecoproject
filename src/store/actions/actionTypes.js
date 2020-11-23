@@ -1,3 +1,6 @@
 export const UPLOAD_COMMENT = 'upload_comment'
 export const FETCH_COMMENTS = 'fetch_comments'
-// export const GET_COMMENTS_LENGTH = 'get_comments_length'
+export const GET_LIKES = 'get_likes'
+export const SET_LIKE = 'set_like'
+export const SET_COMMENT_FIELD = 'set_comment_field'
+export const RESET_COMMENT_FIELD = 'reset_comment_field'

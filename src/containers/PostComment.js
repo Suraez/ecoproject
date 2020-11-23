@@ -1,38 +1,23 @@
-import React, { useState } from "react";
-import axios from "../axiosConfig";
+import React from "react";
+import { connect } from "react-redux";
+import { postComment, setCommentField } from "../store/actions/comment";
 
-export default function PostComment() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [comment, setComment] = useState("");
-
-  const postHandler = (e) => {
-      e.preventDefault();
-    axios
-      .post("/comments.json", { name, email, comment, date: new Date().toJSON().slice(0,10).replace(/-/g,'/')})
-      .then((res) => {
-        setName("")
-        setEmail("")
-        setComment("")
-        alert("Thanks for the comment! Your comment is submitted for approval.")
-      })
-      .catch((err) => console.log(err));
-  };
-
+function PostComment(props) {
   return (
     <>
       <h4>Post Comment</h4>
       <hr style={{ background: "#55b8cf", height: "6px" }} />
-      <form onSubmit={postHandler}>
+      <form onSubmit={(e) => props.onPostComment(e, props.name, props.email, props.comment)}>
         <div className="form-group">
           <label htmlFor="username">Full Name :</label>
           <input
             type="text"
             id="username"
-            value={name}
+            name="name"
+            value={props.name}
             className="form-control"
             placeholder="John Doe"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => props.onSetCommentField(e.target.name, e.target.value)}
             required
           />
         </div>
@@ -41,10 +26,11 @@ export default function PostComment() {
           <input
             type="email"
             id="useremail"
-            value={email}
+            name="email"
+            value={props.email}
             className="form-control"
             placeholder="johndoe@gmail.com"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => props.onSetCommentField(e.target.name, e.target.value)}
             required
           />
         </div>
@@ -53,10 +39,11 @@ export default function PostComment() {
           <textarea
             type="text"
             id="usercomment"
-            value={comment}
+            name="comment"
+            value={props.comment}
             className="form-control"
             placeholder="Type your comment here."
-            onChange={(e) => setComment(e.target.value)}
+            onChange={(e) => props.onSetCommentField(e.target.name, e.target.value)}
             required
           />
         </div>
@@ -71,3 +58,22 @@ export default function PostComment() {
     </>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    name: state.commentData.name,
+    email: state.commentData.email,
+    comment: state.commentData.comment,
+  }
+}
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSetCommentField: (name, value) => dispatch(setCommentField(name, value)),
+    onPostComment: (e, name, email, comment) => dispatch(postComment(e, name, email, comment))
+  }
+}
+
+
+export default  connect(mapStateToProps, mapDispatchToProps)(PostComment);

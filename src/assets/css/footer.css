@@ -10,6 +10,7 @@ a.social{
 .developerName {
     display: block;
     float: right;
+    color: #6B757D !important;
 }
 
 @media(max-width: 500px) {

@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import LikeComment from "../containers/LikeComment";
 import Navigation from "./Navigation";
 
-export default function Header(props) {
+export default function Header() {
   return (
     <div className="container shadow bg-white text-muted">
       <div className="row">
@@ -17,11 +17,7 @@ export default function Header(props) {
 
       <div className="row">
         <div className={`${styles.alignIcons} col-md-2 col-12 text-muted`}>
-          <LikeComment
-            totalLikes={props.totalLikes}
-            isLiked={props.isLiked}
-            likeHandler={props.likeHandler}
-          />
+          <LikeComment/>
         </div>
         <div className="col-md-6 col-12">
           <img src={require("../assets/images/man.svg")} alt="illustrations" />
@@ -50,3 +46,4 @@ export default function Header(props) {
     </div>
   );
 }
+

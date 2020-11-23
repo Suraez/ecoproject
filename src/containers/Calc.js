@@ -13,7 +13,6 @@ import allFunctions from "../components/HelperFunctions"
 
 
 // importing redux functions
-import { fetchComments } from '../store/actions/comment'
 import { connect } from 'react-redux'
 
 class Calc extends Component{
@@ -32,19 +31,6 @@ class Calc extends Component{
 
     componentDidMount () {
         this.getStates(this.props.match.params.id)
-        // axios.get('/comments.json')
-        //   .then(res => {
-        //       let allComments = []
-        //       for (let key in res.data) {
-        //           allComments.push({
-        //               id: key,
-        //               ...res.data[key]
-        //           })
-        //       }
-        //       dispatch(setComments(allComments))
-        //   })
-        //   .catch(err => console.log(err))
-        this.props.onFetchCommments()
     }
 
     paginate = (page) => {
@@ -238,10 +224,4 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onFetchCommments: () => dispatch(fetchComments() )
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Calc);
+export default connect(mapStateToProps)(Calc);
