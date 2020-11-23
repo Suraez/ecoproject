@@ -75,7 +75,7 @@ export const postComment = (e, name, email, comment) => {
     return dispatch => {
         e.preventDefault();
         axios
-          .post("/comments.json", { name, email, comment, date: new Date().toJSON().slice(0,10).replace(/-/g,'/')})
+          .post("/postComments.json", { name, email, comment, date: new Date().toJSON().slice(0,10).replace(/-/g,'/')})
           .then((res) => {
             dispatch(resetCommentField())
             alert("Thanks for the comment! Your comment is submitted for approval.")
